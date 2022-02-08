@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Card from "./components/Card";
+import Header from "./components/Header";
+import Planet from "./components/PlanetLogo"
+import data from "./data"
+
+
 
 function App() {
+  const cards = data.map((item) => {
+    return (
+      <Card 
+      item={item} />
+    )
+  })
+ 
+  console.log(cards)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <Header> <Planet /> my travel journal. </Header>
+    <div className="container-sm max-w-xl mx-auto">
+      <div className="py-2">{cards[0]}</div>
+      <div className="border-t border-grey-500 py-2">{cards[1]}</div>
+      <div className="py-2 border-t border-grey-500">{cards[2]}</div>
     </div>
-  );
+    </>
+  )
 }
 
-export default App;
+
+
+export default App
+
+
+
+
